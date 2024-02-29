@@ -15,11 +15,10 @@ function App() {
       setData(data);
       const newData=data.filter((d,indx) => d.id > 0 && d.id<= 10)
       setDisplayDatad(newData)
-  
     }
     catch(e){
-      console.error(e)
-
+      console.error(e);
+      alert("failed to fetch data")
     }
 
   }
@@ -56,6 +55,7 @@ useEffect(() => {console.log("pageNo")
         <th>Email</th>
         <th>Role</th>
         </tr>
+        <tbody>
         {displayData.map((data) => (
           <tr>
             <td>{data.id}</td>
@@ -66,6 +66,7 @@ useEffect(() => {console.log("pageNo")
 
         )
         )}
+        </tbody>
       </table>
 
       <button onClick={() => pageNo >1 ?setPageNo(pageNo-1):null}>Previous</button>
